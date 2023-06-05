@@ -1,0 +1,23 @@
+<div class="container" *ngIf="isLoading; else loading">
+  <app-favourite id="favContainer"></app-favourite>
+  <div class="row">
+    <div class="col-4" *ngFor="let foto of fotos">
+      <div class="card mb-4 border border-0">
+        <img class="card-img-top" src="{{foto.thumbnailUrl}}" alt="Card thumbnail">
+        <div class="card-body bg-secondary">
+          <p class="card-text text-center">{{foto.title}}</p>
+          <div class="d-flex justify-content-around">
+          <button type="button" class="btn btn-danger" (click)="rimuoviFoto(foto.id)">Elimina</button>
+          <button type="button" class="btn btn-success" (click)="favFoto()">Mi Piace</button>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #loading>
+  <div class="container d-flex align-items-center justify-content-center h-100">
+  <div class="spinner-border" role="status" style="width: 6rem; height: 6rem;">
+  </div>
+</div>
+</ng-template>
