@@ -27,7 +27,8 @@ export class ReactiveComponent implements OnInit {
       alterEgo: new FormControl(null, Validators.required),
       power: new FormControl(null, Validators.required),
       enemy: new FormControl(null, Validators.maxLength(10)),
-      planet: new FormControl(null, [Validators.required, Validators.minLength(5)])
+      planet: new FormControl(null, [Validators.required, Validators.minLength(5)]),
+      weakness: new FormControl
     })
 
     this.heroForm.statusChanges?.subscribe(stato => {
@@ -37,7 +38,7 @@ export class ReactiveComponent implements OnInit {
   }
 
   submitForm() {
-    console.log('Form inviato: ', this.heroForm);
+    console.log('Form inviato: ', this.hero);
     this.hero.name = this.heroForm.value.name;
     this.hero.alterEgo = this.heroForm.value.alterEgo;
     this.hero.power = this.heroForm.value.power;

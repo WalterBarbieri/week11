@@ -1,5 +1,5 @@
 <div class="container mb-4">
-  <h2 class="text-center">Reactive Form</h2>
+  <h2 class="text-center">Reactive SuperHero Form</h2>
   <div class="container">
     <div class="row">
       <div class="col-12">
@@ -15,7 +15,7 @@
             </div>
             <div class="form-group">
               <label for="power">Poteri</label>
-              <select name="power" id="power" class="form-select" class="form-control"  required>
+              <select name="power" id="power" class="form-select" class="form-control" formControlName="power" required>
                 <option value=""></option>
                 <option value="fly">Volare</option>
                 <option value="invisibility">Invisibilità</option>
@@ -32,7 +32,7 @@
               <p *ngIf="heroForm.get('planet')!.invalid && heroForm.get('planet')!.touched">Campo Obbligatorio</p>
               <p *ngIf="heroForm.get('planet')!.value && heroForm.get('planet')!.value.length < 5">Caratteri Minimi: 5</p>
               <label for="weakness">Debolezza</label>
-              <input type="text" id="weakness" name="weakness" class="form-control mb-3">
+              <input type="text" id="weakness" name="weakness" class="form-control mb-3" formControlName="weakness">
             </div>
             <button type="submit" class="btn btn-primary" [disabled]="heroForm.invalid">Invia</button>
           </div>
