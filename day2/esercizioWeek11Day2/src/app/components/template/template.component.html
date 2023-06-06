@@ -1,0 +1,43 @@
+<div class="container">
+  <h1>Esercizio Week11 Day2</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <form (ngSubmit)="submitForm()" #contenitoreForm="ngForm">
+          <div ngModelGroup="heroInfo" id="heroInfo" #heroGroup="ngModelGroup">
+            <div class="form-group">
+              <label for="name">Nome</label>
+              <input type="text" id="name" name="name" class="form-control" [ngModel]="heroForm.name" required #name="ngModel">
+              <p *ngIf="name.invalid && name.touched">Campo Obbligatorio</p>
+              <label for="alterEgo">Alter Ego</label>
+              <input type="text" id="alterEgo" name="alterEgo" class="form-control" [ngModel]="heroForm.alterEgo" required #alterEgo="ngModel">
+              <p *ngIf="alterEgo.invalid && alterEgo.touched">Campo Obbligatorio</p>
+            </div>
+            <div class="form-group">
+              <label for="power">Poteri</label>
+              <select name="power" id="power" class="form-select" [ngModel]="heroForm.power" required #power="ngModel">
+                <option value=""></option>
+                <option value="fly">Volare</option>
+                <option value="invisibility">Invisibilità</option>
+                <option value="angular">Angular-Pro</option>
+              </select>
+              <p *ngIf="power.invalid && power.touched">Campo Obbligatorio</p>
+            </div>
+            <div class="form-group">
+              <label for="enemy">Nemico</label>
+              <input type="text" id="enemy" name="enemy" class="form-control" maxlength="10" [ngModel]="heroForm.enemy" #enemy="ngModel">
+              <p *ngIf="enemy.value && enemy.value.length === 10">Caratteri Massimi: 10</p>
+              <label for="planet">Pianeta</label>
+              <input type="text" id="planet" name="planet" class="form-control" minlength="5" [ngModel]="heroForm.planet" required #planet="ngModel">
+              <p *ngIf="planet.invalid && planet.touched">Campo Obbligatorio</p>
+              <p *ngIf="planet.value && planet.value.length < 5">Caratteri minimi: 5</p>
+              <label for="weakness">Debolezza</label>
+              <input type="text" id="weakness" name="weakness" class="form-control mb-3" [ngModel]="heroForm.weakness" #weakness="ngModel">
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="contenitoreForm.invalid">Invia</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
