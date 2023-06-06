@@ -5,34 +5,36 @@
       <div class="col-12">
         <form (ngSubmit)="submitForm()" [formGroup]="heroForm">
           <div>
-            <div class="form-group">
+            <div class="form-group mb-3">
               <label for="name">Nome</label>
               <input type="text" id="name" name="name" class="form-control" formControlName="name" required>
               <p *ngIf="heroForm.get('name')!.invalid && heroForm.get('name')!.touched">Campo Obbligatorio</p>
               <label for="alterEgo">Alter Ego</label>
-              <input type="text" id="alterEgo" name="alterEgo" class="form-control"  formControlName="alterEgo"  required>
+              <input type="text" id="alterEgo" name="alterEgo" class="form-control" formControlName="alterEgo" required>
               <p *ngIf="heroForm.get('alterEgo')!.invalid && heroForm.get('alterEgo')!.touched">Campo Obbligatorio</p>
             </div>
             <div class="form-group">
-              <label for="power">Poteri</label>
-              <select name="power" id="power" class="form-select" class="form-control" formControlName="power" required>
-                <option value=""></option>
-                <option value="fly">Volare</option>
-                <option value="invisibility">Invisibilità</option>
-                <option value="angular">Angular-Pro</option>
-              </select>
-              <p *ngIf="heroForm.get('power')!.invalid && heroForm.get('power')!.touched">Campo Obbligatorio</p>
+              <button type="button" class="btn btn-success mb-3" (click)="generatePower()"
+                [disabled]="isPowerEmpty()">Aggiungi Potere</button>
+              <div class="mb-3" *ngFor="let power of powers; let i = index;">
+                <input type="text" [formControl]="power">
+              </div>
             </div>
             <div class="form-group">
               <label for="enemy">Nemico</label>
-              <input type="text" id="enemy" name="enemy" class="form-control"  formControlName="enemy">
-              <p *ngIf="heroForm.get('enemy')!.value && heroForm.get('enemy')!.value.length > 10">Caratteri Massimi: 10</p>
+              <input type="text" id="enemy" name="enemy" class="form-control" formControlName="enemy">
+              <p *ngIf="heroForm.get('enemy')!.value && heroForm.get('enemy')!.value.length > 10">Caratteri Massimi: 10
+              </p>
               <label for="planet">Pianeta</label>
-              <input type="text" id="planet" name="planet" class="form-control"  formControlName="planet"  required>
+              <input type="text" id="planet" name="planet" class="form-control mb-3" formControlName="planet" required>
               <p *ngIf="heroForm.get('planet')!.invalid && heroForm.get('planet')!.touched">Campo Obbligatorio</p>
-              <p *ngIf="heroForm.get('planet')!.value && heroForm.get('planet')!.value.length < 5">Caratteri Minimi: 5</p>
-              <label for="weakness">Debolezza</label>
-              <input type="text" id="weakness" name="weakness" class="form-control mb-3" formControlName="weakness">
+              <p *ngIf="heroForm.get('planet')!.value && heroForm.get('planet')!.value.length < 5">Caratteri Minimi: 5
+              </p>
+              <button type="button" class="btn btn-success mb-3" (click)="generateWeakness()"
+                [disabled]="isWeaknessEmpty()">Aggiungi Debolezza</button>
+              <div class="mb-3" *ngFor="let weakness of weaknesses; let i = index;">
+                <input type="text" [formControl]="weakness">
+              </div>
             </div>
             <button type="submit" class="btn btn-primary" [disabled]="heroForm.invalid">Invia</button>
           </div>
@@ -41,4 +43,3 @@
     </div>
   </div>
 </div>
-

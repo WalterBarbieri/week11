@@ -8,15 +8,19 @@ import { FormBuilder, FormControl, FormGroup, Validator, Validators } from '@ang
 })
 export class ReactiveComponent implements OnInit {
 
+  weaknesses: FormControl[] = [];
+
+  powers: FormControl[] = [];
+
   heroForm!: FormGroup;
 
   hero: any = {
     name: '',
     alterEgo: '',
-    power: '',
+    powers: [],
     enemy: '',
     planet: '',
-    weakness: ''
+    weaknesses: []
   }
 
   constructor() { }
@@ -25,10 +29,8 @@ export class ReactiveComponent implements OnInit {
     this.heroForm = new FormGroup ({
       name: new FormControl(null, Validators.required),
       alterEgo: new FormControl(null, Validators.required),
-      power: new FormControl(null, Validators.required),
       enemy: new FormControl(null, Validators.maxLength(10)),
       planet: new FormControl(null, [Validators.required, Validators.minLength(5)]),
-      weakness: new FormControl
     })
 
     this.heroForm.statusChanges?.subscribe(stato => {
@@ -37,14 +39,34 @@ export class ReactiveComponent implements OnInit {
     })
   }
 
+  generateWeakness() {
+    const newWeakness = new FormControl('');
+    this.weaknesses.push(newWeakness);
+    this.heroForm.addControl(`input${this.weaknesses.length}`, newWeakness);
+  }
+  isWeaknessEmpty() {
+    return this.weaknesses.some((weakness: FormControl) => weakness.value?.trim() === '');
+  }
+
+  generatePower() {
+    const newPower = new FormControl('');
+    this.powers.push(newPower);
+    this.heroForm.addControl(`input${this.powers.length}`, newPower);
+  }
+  isPowerEmpty() {
+    return this.powers.some((power: FormControl) => power.value?.trim() === '');
+  }
+
+
+
   submitForm() {
     console.log('Form inviato: ', this.hero);
     this.hero.name = this.heroForm.value.name;
     this.hero.alterEgo = this.heroForm.value.alterEgo;
-    this.hero.power = this.heroForm.value.power;
+    this.hero.powers = this.powers.map((power: FormControl) => power.value).filter((value: string) => value.trim() !== '');
     this.hero.enemy = this.heroForm.value.enemy;
     this.hero.planet = this.heroForm.value.planet;
-    this.hero.weakness = this.heroForm.value.weakness;
+    this.hero.weaknesses = this.weaknesses.map((weakness: FormControl) => weakness.value).filter((value: string) => value.trim() !== '');
     this.heroForm.reset();
   }
 
