@@ -1,0 +1,43 @@
+{
+  "users": [
+    {
+      "email": "walter@barbieri.it",
+      "password": "$2a$10$eNDc/N3iuQcH/XN2ELIFy.6lkWIEEVIGqwfTXpq.AnTlsAgX0eMVe",
+      "nome": "Walter",
+      "cognome": "Barbieri",
+      "id": 1
+    }
+  ],
+  "prodotti": [
+    {
+      "id": 1,
+      "codice": "A001",
+      "nomeProdotto": "Birra",
+      "prezzo": 2
+    },
+    {
+      "id": 2,
+      "codice": "A002",
+      "nomeProdotto": "Vino",
+      "prezzo": 10
+    },
+    {
+      "id": 3,
+      "codice": "A003",
+      "nomeProdotto": "Tequila",
+      "prezzo": 30
+    },
+    {
+      "codice": "A004",
+      "nomeProdotto": "Rhum",
+      "prezzo": 40,
+      "id": 4
+    },
+    {
+      "codice": "A005",
+      "nomeProdotto": "Vodka",
+      "prezzo": 20,
+      "id": 5
+    }
+  ]
+}
