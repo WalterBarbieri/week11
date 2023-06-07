@@ -49,7 +49,7 @@ export class ReactiveComponent implements OnInit {
   }
 
   generatePower() {
-    const newPower = new FormControl('');
+    const newPower = new FormControl( null, [Validators.required]);
     this.powers.push(newPower);
     this.heroForm.addControl(`input${this.powers.length}`, newPower);
   }
