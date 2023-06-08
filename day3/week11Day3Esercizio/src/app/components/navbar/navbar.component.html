@@ -1,16 +1,18 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" [routerLink]="'/'">Navbar</a>
+    <a class="navbar-brand" [routerLink]="'/'"><img src="../../../assets/EPICODE-pitto-color.png" alt="Epicode Logo" class="logo"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link active:not() active" aria-current="page" [routerLink]="'/'" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
-        <a class="nav-link active:not()" [routerLink]="'/prodotti'" routerLinkActive="active">Prodotti</a>
-        <a class="nav-link active:not()" [routerLink]="'/login'" routerLinkActive="active">Accedi</a>
-        <a class="nav-link active:not()" [routerLink]="'/register'" routerLinkActive="active">Iscriviti</a>
+        <a class="nav-link active:not()" [routerLink]="'/prodotti'" routerLinkActive="active" *ngIf="user">Prodotti</a>
+        <a class="nav-link active:not()" [routerLink]="'/login'" routerLinkActive="active" *ngIf="!user">Accedi</a>
+        <a class="nav-link active:not()" [routerLink]="'/register'" routerLinkActive="active" *ngIf="!user">Iscriviti</a>
       </div>
+      <h6 *ngIf="user">{{user.user.nome}} <br> {{user.user.cognome}} </h6>
+      <button type="button" class="btn btn-danger ms-3" *ngIf="user" (click)="logOut()">Logout</button>
     </div>
   </div>
 </nav>

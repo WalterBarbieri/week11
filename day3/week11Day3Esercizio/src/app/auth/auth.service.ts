@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, throwError } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { tap } from 'rxjs/operators';
+import { tap, catchError } from 'rxjs/operators';
 import { AuthData } from './auth-data.interface';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
@@ -36,7 +36,8 @@ export class AuthService {
         console.log(this.utente);
         localStorage.setItem('user', JSON.stringify(data));
         this.autoLogOut(data);
-      })
+      }),
+      catchError(this.errors)
     );
   }
 
@@ -76,6 +77,19 @@ export class AuthService {
     this.timeOutLogout = setTimeout(() => {
       this.logOut()
     }, expirationMillisecond)
+  }
+
+  private errors(err: any) {
+    switch (err.error) {
+      case 'Email already exist':
+        return throwError('Utente già presente');
+        break;
+        case 'Email format is invalid':
+          return throwError('Format email non valido');
+          break;
+          default:
+          return throwError('Errore nella chiamata')
+    }
   }
 
 }

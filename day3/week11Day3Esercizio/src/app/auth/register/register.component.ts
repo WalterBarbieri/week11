@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
 
   registra(form: NgForm) {
     this.isLoading = true;
-    console.log(form);
+    console.log(form.value);
 
     try {
        this.authSrv.signUp(form.value).subscribe();

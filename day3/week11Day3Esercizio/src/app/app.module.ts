@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ProdottiComponent } from './components/prodotti/prodotti.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const route: Route[] = [
   {
@@ -18,7 +19,8 @@ const route: Route[] = [
   },
   {
     path: 'prodotti',
-    component: ProdottiComponent
+    component: ProdottiComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',

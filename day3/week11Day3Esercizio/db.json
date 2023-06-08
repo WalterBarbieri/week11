@@ -6,6 +6,34 @@
       "nome": "Walter",
       "cognome": "Barbieri",
       "id": 1
+    },
+    {
+      "email": "marta@caprino.me",
+      "password": "$2a$10$slfrhono47qNSl83RqZe4ezfso2sjkdcAoJuWzqbKPsSTjDZdjqq2",
+      "nome": "Marta",
+      "cognome": "Caprino",
+      "id": 2
+    },
+    {
+      "email": "molto@bene.ua",
+      "password": "$2a$10$QCE5RdfqmrsfcOAYSTNlU.zlINHBq/h/VYyHR6MRUNf2Rtx6ZQRvu",
+      "nome": "Molto",
+      "cognome": "Bene",
+      "id": 3
+    },
+    {
+      "email": "tanto@male.au",
+      "password": "$2a$10$nVtVFA6KqqqR8z42lAWSm.4rnLN12jiayQUOipiCzgL0qc1tHVUGG",
+      "nome": "Tanto",
+      "cognome": "Male",
+      "id": 4
+    },
+    {
+      "email": "prova@prova.it",
+      "password": "$2a$10$Se1TJF/BX/CeNPcPOuQOie4U07RJ/a57cmltJgmA3hLC.j9koAOTO",
+      "nome": "prova",
+      "cognome": "prova",
+      "id": 5
     }
   ],
   "prodotti": [
