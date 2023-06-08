@@ -20,9 +20,9 @@ export class ProdottiService {
     return this.http.post<Prodotto>(`${this.baseURL}prodotti`, data)
   }
 
-  /*
-  rimuovi(i: number) {
-    return this.http.delete(`${this.baseURL}prodotti/$[i]`)
+
+  rimuovi(id: number) {
+    return this.http.delete(`${this.baseURL}prodotti/${id}`)
   }
-  */
+
 }

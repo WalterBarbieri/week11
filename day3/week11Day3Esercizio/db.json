@@ -78,12 +78,6 @@
       "nomeProdotto": "Grappa",
       "prezzo": 15,
       "id": 7
-    },
-    {
-      "codice": "A008",
-      "nomeProdotto": "Acqua",
-      "prezzo": 1.5,
-      "id": 8
     }
   ]
 }

@@ -14,9 +14,9 @@
           Codice Prodotto: {{prodotto.codice}}<br>
           Nome: {{prodotto.nomeProdotto}}<br>
           Prezzo: &euro; {{prodotto.prezzo}}<br>
-          <!--
-          <button type="button" class="btn btn-danger" [ngModel]="prodotto.id">Rimuovi</button>
-          -->
+
+          <button type="button" class="btn btn-danger" (click)="rimuoviProdotto(prodotto.id)">Rimuovi</button>
+
         </li>
       </ul>
     </div>

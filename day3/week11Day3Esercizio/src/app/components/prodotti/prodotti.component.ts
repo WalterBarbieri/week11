@@ -25,10 +25,14 @@ export class ProdottiComponent implements OnInit {
     }, 1000)
   }
 
-  /**
-  rimuoviProdotto(i: number) {
-    this.prodSrv.rimuovi(i).subscribe;
+
+  rimuoviProdotto(id: number | undefined) {
+    if (id){
+    this.prodSrv.rimuovi(id).subscribe(() =>{
+      this.prodotti = this.prodotti?.filter(prodotto => prodotto.id !== id)
+    })
   }
-   */
+  }
+
 
 }
