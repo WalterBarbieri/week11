@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Prodotto } from 'src/app/models/prodotto.interface';
 import { ProdottiService } from 'src/app/service/prodotti.service';
-import { NgModel } from '@angular/forms';
+
 
 @Component({
   selector: 'app-prodotti',
