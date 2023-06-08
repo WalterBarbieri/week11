@@ -1,14 +1,25 @@
 <h1 class="text-center">Prodotti</h1>
 <div class="container">
   <div class="row">
+    <div class="col-5"></div>
+    <div class="col-2">
+      <a class="btn btn-success my-3" [routerLink]="['/nuovoProdotto']">Inserisci Nuovo Prodotto</a>
+    </div>
+    <div class="col-5"></div>
+  </div>
+  <div class="row">
     <div class="col-12">
       <ul class="list-group">
         <li class="list-group-item" *ngFor="let prodotto of prodotti">
           Codice Prodotto: {{prodotto.codice}}<br>
           Nome: {{prodotto.nomeProdotto}}<br>
-          Prezzo: &euro; {{prodotto.prezzo}}
+          Prezzo: &euro; {{prodotto.prezzo}}<br>
+          <!--
+          <button type="button" class="btn btn-danger" [ngModel]="prodotto.id">Rimuovi</button>
+          -->
         </li>
       </ul>
     </div>
   </div>
+
 </div>

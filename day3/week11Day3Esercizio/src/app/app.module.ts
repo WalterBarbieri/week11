@@ -11,6 +11,7 @@ import { ProdottiComponent } from './components/prodotti/prodotti.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { AuthGuard } from './auth/auth.guard';
+import { NuovoProdottoComponent } from './components/nuovo-prodotto/nuovo-prodotto.component';
 
 const route: Route[] = [
   {
@@ -29,6 +30,11 @@ const route: Route[] = [
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: 'nuovoProdotto',
+    component: NuovoProdottoComponent,
+    canActivate: [AuthGuard]
   }
 ]
 
@@ -39,7 +45,8 @@ const route: Route[] = [
     HomeComponent,
     ProdottiComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    NuovoProdottoComponent
   ],
   imports: [
     BrowserModule,

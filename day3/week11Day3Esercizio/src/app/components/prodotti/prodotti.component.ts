@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Prodotto } from 'src/app/models/prodotto.interface';
 import { ProdottiService } from 'src/app/service/prodotti.service';
+import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-prodotti',
@@ -17,12 +18,17 @@ export class ProdottiComponent implements OnInit {
   constructor(private prodSrv: ProdottiService) { }
 
   ngOnInit(): void {
-    this.prodotti = this.recuperaProdotti();
+    setTimeout(() => {
+      this.sub = this.prodSrv.recupera().subscribe((prodotti: Prodotto[]) => {
+        this.prodotti = prodotti;
+      })
+    }, 1000)
   }
 
-  recuperaProdotti(): any {
-    this.sub = this.prodSrv.recupera().subscribe((prodotti: Prodotto[]) => {
-      this.prodotti = prodotti;
-    })
+  /**
+  rimuoviProdotto(i: number) {
+    this.prodSrv.rimuovi(i).subscribe;
   }
+   */
+
 }

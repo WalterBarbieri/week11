@@ -66,6 +66,24 @@
       "nomeProdotto": "Vodka",
       "prezzo": 20,
       "id": 5
+    },
+    {
+      "codice": "A006",
+      "nomeProdotto": "Whiskey",
+      "prezzo": 70,
+      "id": 6
+    },
+    {
+      "codice": "A007",
+      "nomeProdotto": "Grappa",
+      "prezzo": 15,
+      "id": 7
+    },
+    {
+      "codice": "A008",
+      "nomeProdotto": "Acqua",
+      "prezzo": 1.5,
+      "id": 8
     }
   ]
 }
