@@ -15,9 +15,9 @@
           Nome: {{prodotto.nomeProdotto}}<br>
           Prezzo: &euro; {{prodotto.prezzo}}<br>
 
-          <button type="button" class="btn btn-danger me-2" (click)="rimuoviProdotto(prodotto.id)">Rimuovi</button>
+          <button type="button" class="btn btn-danger me-2" (click)="rimuoviProdotto(prodotto.id)">Rimuovi Prodotto</button>
 
-          <button type="button" class="btn btn-primary">Modifica</button>
+          <button type="button" class="btn btn-primary" (click)="inviaProdotto(prodotto.id)">Modifica Prodotto</button>
 
         </li>
       </ul>
@@ -25,3 +25,4 @@
   </div>
 
 </div>
+

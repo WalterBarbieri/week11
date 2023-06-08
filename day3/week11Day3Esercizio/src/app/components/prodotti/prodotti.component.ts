@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Prodotto } from 'src/app/models/prodotto.interface';
 import { ProdottiService } from 'src/app/service/prodotti.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class ProdottiComponent implements OnInit {
 
   prodotti: Prodotto[] | undefined;
 
-  constructor(private prodSrv: ProdottiService) { }
+  constructor(private prodSrv: ProdottiService, private router: Router) { }
 
   ngOnInit(): void {
     setTimeout(() => {
@@ -34,5 +35,10 @@ export class ProdottiComponent implements OnInit {
   }
   }
 
-
+ inviaProdotto(id: number | undefined) {
+  if(id) {
+    localStorage.setItem('product', JSON.stringify(id));
+    this.router.navigate(['/modificaProdotto']);
+  }
+ }
 }

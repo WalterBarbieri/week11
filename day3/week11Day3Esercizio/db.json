@@ -38,10 +38,10 @@
   ],
   "prodotti": [
     {
-      "id": 1,
       "codice": "A001",
       "nomeProdotto": "Birra",
-      "prezzo": 2
+      "prezzo": 2,
+      "id": 1
     },
     {
       "id": 2,

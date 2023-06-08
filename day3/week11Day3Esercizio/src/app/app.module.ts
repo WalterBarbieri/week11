@@ -12,6 +12,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { AuthGuard } from './auth/auth.guard';
 import { NuovoProdottoComponent } from './components/nuovo-prodotto/nuovo-prodotto.component';
+import { ModificaProdottoComponent } from './components/modifica-prodotto/modifica-prodotto.component';
 
 const route: Route[] = [
   {
@@ -35,6 +36,11 @@ const route: Route[] = [
     path: 'nuovoProdotto',
     component: NuovoProdottoComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'modificaProdotto',
+    component: ModificaProdottoComponent,
+    canActivate: [AuthGuard]
   }
 ]
 
@@ -46,7 +52,8 @@ const route: Route[] = [
     ProdottiComponent,
     LoginComponent,
     RegisterComponent,
-    NuovoProdottoComponent
+    NuovoProdottoComponent,
+    ModificaProdottoComponent
   ],
   imports: [
     BrowserModule,
